@@ -1,15 +1,28 @@
 import React, { useState} from "react";
 
-const AddBook = ({ onSubmit, onChange, book }) => {
+const AddBook = () => {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  // const [pages, setPages] = useState("");
+  const [rating, setRating] = useState("5");
+  const addBookHandler = (e) => {
+    e.preventDefault();
+    // onSubmit({ title, author, pages, read });
+    setTitle("");
+    setAuthor("");
+    // setPages("");
+
+    setRating("");
+  };
   return (
-    <form onSubmit={onSubmit}>
+    <form >
       <div className="form-group">
         <label>Title</label>
         <input
           className="form-control"
           name="title"
-          onChange={onChange}
-          value={book.title}
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
         />
       </div>
       <div className="form-group">
@@ -17,11 +30,11 @@ const AddBook = ({ onSubmit, onChange, book }) => {
         <input
           className="form-control"
           name="author"
-          onChange={onChange}
-          value={book.author}
+          onChange={(e) => author(e.target.value)}
+          value={author}
         />
       </div>
-      <div className="form-group">
+      {/* <div className="form-group">
         <label>Genre</label>
         <input
           className="form-control"
@@ -29,18 +42,21 @@ const AddBook = ({ onSubmit, onChange, book }) => {
           onChange={onChange}
           value={book.genre}
         />
-      </div>
+      </div> */}
       <div className="form-group">
-        <label>Read</label>
+        <label>Rating</label>
         <input
           className="form-control"
           name="read"
-          onChange={onChange}
-          value={book.read}
+          onChange={(e) => setRating(e.target.value)}
+          value={rating}
+          type="number"
+          min="1"
+          max="10"
         />
       </div>
       <div className="form-group">
-        <input type="submit" value="Add Book" className="btn btn-primary" />
+        <button className="btn btn-primary" onClick={addBookHandler}>Add Book</button>
       </div>
     </form>
   );
