@@ -15,7 +15,7 @@ const AddBook = () => {
     setRating("");
   };
   return (
-    <form >
+    <form className="add-book">
       <div className="form-group">
         <label>Title</label>
         <input
