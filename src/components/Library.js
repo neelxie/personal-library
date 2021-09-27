@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Library = () => {
   const deleteBookHandler = (id) => {
     // delete dispatch
   };
+  const books = useSelector(state => state.books.books)
   return (
     <div className="library">
       <h2>Library</h2>
