@@ -5,7 +5,19 @@ const Library = () => {
   const deleteBookHandler = (id) => {
     // delete dispatch
   };
-  const books = useSelector(state => state.books.books)
+  const books = useSelector((state) => state.books.books);
+  const bookTable = books.map((book) => (
+    <tr>
+      <td>{book.title}</td>
+      <td>{book.author}</td>
+      <td>{book.rating}</td>
+      <td>
+        <button className="delete" onClick={() => deleteBookHandler(book.id)}>
+          x
+        </button>
+      </td>
+    </tr>
+  ));
   return (
     <div className="library">
       <h2>Library</h2>
